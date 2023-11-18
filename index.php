@@ -7,11 +7,13 @@ if (isset($_POST['region'])) {
   header_remove("fly-replay");
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>Fly machine(
+  <title>
+    Snapaper Files -
     <?php echo getenv("FLY_REGION") ?>)
   </title>
   <style>
@@ -34,20 +36,9 @@ if (isset($_POST['region'])) {
     }
   </script>
 
-  <h1>Welcome to fly machines(
-    <?php echo getenv("FLY_REGION") ?>) via terraform!
+  <h1>Snapaper Files (
+    <?php echo getenv("FLY_REGION") ?>)
   </h1>
-  <p>If you see this page, the nginx web server is successfully installed and
-    working. This page is being served from a machine in
-    <?php echo getenv("FLY_REGION") ?>
-  </p>
-
-  <h2>Force region:</h2>
-  <form method="post">
-    <button type="submit" name="region" value="ewr">ewr</button>
-    <button type="submit" name="region" value="lax">lax</button>
-  </form>
-  <p><em>Thank you for using fly.io :)</em></p>
 </body>
 
 </html>
