@@ -9,6 +9,7 @@ $path_parts = pathinfo($url);
 $ext = $path_parts['extension'];
 $filename = $path_parts['filename'];
 
+header("Access-Control-Allow-Origin: *");
 header("Content-type: application/$ext");
 header("Content-Disposition: attachment; filename=$filename.$ext");
 header("Pragma: no-cache");

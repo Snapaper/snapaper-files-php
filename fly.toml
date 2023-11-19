@@ -6,8 +6,6 @@ kill_timeout = "5s"
 [experimental]
   auto_rollback = true
 
-[build]
-
 [http_service]
   internal_port = 8080
   force_https = true
@@ -29,19 +27,14 @@ kill_timeout = "5s"
   [[services.ports]]
     port = 443
     handlers = ["tls", "http"]
+
   [services.concurrency]
     type = "connections"
     hard_limit = 25
     soft_limit = 20
 
-  [[services.http_checks]]
-    interval = "15s"
-    timeout = "2s"
+  [[services.tcp_checks]]
     grace_period = "1s"
-    path = "/"
-    method = "get"
-    tls_skip_verify = false
-
-[mounts]
-  source="snapaper_files_data"
-  destination="/case"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
